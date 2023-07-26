@@ -12,7 +12,7 @@ def check_print_file(file: str) -> bool:
     with open(file, "r") as file_one:
         for idx, line in enumerate(file_one):
             if re.search("print", line):
-                logger.error(f"Print Stmt : {file} : L{idx}: {line}")
+                logger.error(f"[ERROR] detected print : {file} : L{idx}: {line}")
                 success = False
     return success
 
