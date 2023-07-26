@@ -24,7 +24,7 @@ def check_print_file(file: str) -> bool:
     with open(file, "r") as file_one:
         for idx, line in enumerate(file_one):
             if re.search("print", line):
-                logger.error(f"[ERROR] detected print : {file} : L{idx}: {line}")
+                logger.warning(f"[ERROR] detected print : {file} : L{idx}: {line}")
                 success = False
     return success
 
@@ -42,8 +42,6 @@ def check_fix_print(filenames: list[str], fix_files: bool) -> int:
         valid.append(check)
     if all(valid):
         return 0
-    if fix_files:
-        logging.warning("\U00002728 Removed all prints statements \U00002728")
     return 1
 
 
