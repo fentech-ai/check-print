@@ -1,0 +1,7 @@
+- id: check-print
+  name: check-print
+  description: Prevents prints to subsist in the files
+  entry: check-print
+  language: python
+  pass_filenames: false
+  always_run: true
