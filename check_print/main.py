@@ -37,5 +37,5 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     return check_print(args.filenames)
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__":  # pragma: no cover
+    raise SystemExit(main())
