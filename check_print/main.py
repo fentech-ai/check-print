@@ -9,7 +9,7 @@ logger = logging.getLogger()
 
 
 def fix_file(file: str) -> None:
-    logging.info(f"Fixing {file}")
+    logging.warning(f"Fixing {file}")
     with open("tmp.py", "w") as output:
         with open(file, "r") as file_one:
             for line in file_one:
@@ -41,9 +41,9 @@ def check_fix_print(filenames: list[str], fix_files: bool) -> int:
             fix_file(filename)
         valid.append(check)
     if all(valid):
-        if fix_files:
-            logging.info("\U00002728 Removed all prints statements \U00002728")
         return 0
+    if fix_files:
+        logging.warning("\U00002728 Removed all prints statements \U00002728")
     return 1
 
 
