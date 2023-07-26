@@ -2,6 +2,7 @@
 import argparse
 import logging
 import re
+from typing import Optional, Sequence
 
 logger = logging.getLogger()
 
@@ -16,7 +17,7 @@ def check_print_file(file: str) -> bool:
     return success
 
 
-def check_print(filenames: list[str]):
+def check_print(filenames: list[str]) -> int:
     valid = []
     for filename in filenames:
         valid.append(check_print_file(filename))
@@ -25,15 +26,15 @@ def check_print(filenames: list[str]):
     return 1
 
 
-def main():
+def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("filenames", nargs="*")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     if not args.filenames:
         raise ValueError("Empty file list")
 
-    check_print(args.filenames)
+    return check_print(args.filenames)
 
 
 if __name__ == "__main__":
