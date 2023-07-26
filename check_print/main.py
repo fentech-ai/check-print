@@ -27,13 +27,13 @@ def check_print(filenames: list[str]) -> int:
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
-    logging.error(f"List files: {argv}")
+
     parser = argparse.ArgumentParser()
     parser.add_argument("filenames", nargs="*")
     args = parser.parse_args(argv)
-    raise ValueError(f"Empty file list : {args.filenames}")
+
     if not args.filenames:
-        raise ValueError(f"Empty file list : {args.filenames}")
+        raise ValueError(f"Empty file list")
 
     return check_print(args.filenames)
 
