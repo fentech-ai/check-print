@@ -57,7 +57,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if not args.filenames:
         raise ValueError(f"Empty file list")
 
-    return check_fix_print(args.filenames, not args.no_fix_files)
+    return check_fix_print(args.filenames, args.no_fix_files)
 
 
 if __name__ == "__main__":  # pragma: no cover
