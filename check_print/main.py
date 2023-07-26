@@ -9,6 +9,7 @@ logger = logging.getLogger()
 
 
 def fix_file(file: str) -> None:
+    logging.info(f"Fixing {file}")
     with open("tmp.py", "w") as output:
         with open(file, "r") as file_one:
             for line in file_one:
