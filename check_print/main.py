@@ -32,7 +32,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     args = parser.parse_args(argv)
 
     if not args.filenames:
-        raise ValueError("Empty file list")
+        raise ValueError(f"Empty file list : {argv}")
 
     return check_print(args.filenames)
 
