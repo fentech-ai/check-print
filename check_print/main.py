@@ -27,6 +27,7 @@ def check_print(filenames: list[str]) -> int:
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
+    logging.error(f"List files: {argv}")
     parser = argparse.ArgumentParser()
     parser.add_argument("filenames", nargs="*")
     args = parser.parse_args(argv)
